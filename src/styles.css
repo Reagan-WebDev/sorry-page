@@ -182,3 +182,19 @@ button {
   }
 
 }
+
+.musicBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: white;
+  color: #ff6b81;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.musicBtn:hover {
+  transform: scale(1.1);
+}
