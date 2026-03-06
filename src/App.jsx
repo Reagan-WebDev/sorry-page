@@ -9,34 +9,10 @@ import TimePage from "./pages/TimePage";
 function Home() {
   const navigate = useNavigate();
 
-  const audioRef = useRef(null);
-
-    useEffect(() => {
-      if (audioRef.current) {
-        audioRef.current.volume = 0.3;
-      }
-    }, []);
-
   return (
     <div className="container">
 
-        <audio ref={audioRef} autoPlay loop>
-          <source src="/music/apology.mp3" type="audio/mp3" />
-        </audio>
       <h1>A message for you ❤️</h1>
-
-      <button
-        className="musicBtn"
-        onClick={() => {
-          if (audioRef.current.paused) {
-            audioRef.current.play();
-          } else {
-            audioRef.current.pause();
-          }
-        }}
-      >
-        🎵 Toggle Music
-      </button>
 
       <TypeAnimation
         sequence={[
@@ -81,13 +57,46 @@ function Home() {
 }
 
 function App() {
+
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.3;
+    }
+  }, []);
+
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/yes" element={<YesPage />} />
-      <Route path="/time" element={<TimePage />} />
-    </Routes>
+    <>
+      <audio ref={audioRef} autoPlay loop>
+        <source src="/music/apology.mp3" type="audio/mp3" />
+      </audio>
+
+      <button
+        className="musicBtn"
+        onClick={() => {
+          if (audioRef.current.paused) {
+            audioRef.current.play();
+          } else {
+            audioRef.current.pause();
+          }
+        }}
+        style={{
+          position: "fixed",
+          top: "20px",
+          right: "20px",
+          zIndex: 1000
+        }}
+      >
+        🎵
+      </button>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/yes" element={<YesPage />} />
+        <Route path="/time" element={<TimePage />} />
+      </Routes>
+    </>
   );
 }
-
 export default App;
