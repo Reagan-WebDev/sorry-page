@@ -243,6 +243,7 @@ button {
   left: 50%;
   transform: translateX(-50%);
   background: #ffe6f0;
+  color: pink;
   padding: 30px 40px;
   border-radius: 25px;
   text-align: center;

@@ -47,7 +47,7 @@ function YesPage() {
     // Hide popup after 5 seconds (confetti duration)
     const timer = setTimeout(() => {
       setShowPopup(false);
-    }, 5000); // 5000ms = 5 seconds
+    }, 7000); // 7000ms = 7 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -69,7 +69,7 @@ function YesPage() {
           <Confetti
             width={windowSize.width}
             height={windowSize.height}
-            numberOfPieces={200}
+            numberOfPieces={300}
           />
           <div className="popup">
             <h2>Yay! 💖</h2>
